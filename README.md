@@ -9,7 +9,7 @@ Technologies :
 o
 Frontend : React.js
 o
-Backend : Node.js + Express
+Backend : Node.js + Express + typescript + tailwindcss + vite
 o
 Base de données : MongoDB (ou autre NoSQL/SQL au besoin)
 o
