@@ -1,7 +1,6 @@
 {
-  "name": "hatstore",
+  "name": "auth-service",
   "version": "1.0.0",
-  "description": "Cahier des Charges – Site E-Commerce \"Hatstore\"\r 1. Présentation du projet\r •\r Nom du site : Hatstore\r •\r Objectif : Vente en ligne de chapeaux pour tous types de clients (mode, protection solaire, accessoires, etc.)\r •\r Technologies :\r o\r Frontend : React.js\r o\r Backend : Node.js + Express\r o\r Base de données : MongoDB (ou autre NoSQL/SQL au besoin)\r o\r Paiement : Intégration de carte bancaire (via Stripe par ex.) et PayPal\r 2. Fonctionnalités principales\r 2.1. Utilisateur\r •\r Création de compte / Connexion / Déconnexion\r •\r Gestion de profil (adresse, mot de passe, historique d’achat)\r •\r Recherche de produits (par nom, catégorie, prix, etc.)\r •\r Navigation par catégories de chapeaux\r •\r Affichage des détails produit (photos, description, prix, stock)\r •\r Ajout au panier / Suppression / Modification de quantité\r •\r Paiement par carte bancaire ou PayPal\r •\r Suivi de commande\r •\r Email de confirmation après achat\r 2.2. Admin\r •\r Connexion sécurisée à l’interface admin\r •\r Ajout / modification / suppression de produits\r •\r Gestion du stock\r •\r Visualisation des commandes\r •\r Gestion des utilisateurs\r 3. Pages principales du site\r 1.\r Accueil : Mise en avant des collections, promotions, nouveautés\r 2.\r Catalogue / Boutique : Liste des chapeaux avec filtres (taille, couleur, style, prix…)\r 3.\r Page produit : Description complète, photos, bouton “ajouter au panier”\r 4.\r Panier : Liste des articles avec modification possible\r 5.\r Paiement : Formulaire sécurisé, choix de méthode de paiement\r 6.\r Connexion / Inscription\r 7.\r Mon compte : Informations personnelles, historique d’achats\r 8.\r Espace admin : Gestion produits, commandes, utilisateurs\r 9.\r Page 404 / erreur : Gestion des routes inexistantes\r 10.\r CGV / Mentions légales / Politique de retour\r 4. Contraintes techniques\r •\r Responsive design (mobile, tablette, desktop)\r •\r Sécurité des données personnelles (RGPD)\r •\r Intégration HTTPS\r •\r Paiement sécurisé (SSL, tokenisation)\r •\r Performance optimisée (lazy loading, cache)\r 5. Pistes d’évolutions\r •\r Ajout d’un blog (mode, tendances, etc.)\r •\r Module de recommandation produit\r •\r Système de points de fidélité\r •\r Intégration Instagram / réseaux sociaux\r •\r Multilingue\r ✅ Étape 1 : Préparation du projet\r 1.\r Définir les besoins fonctionnels clairement → Tu viens de le faire avec le cahier des charges\r 2.\r Créer l’arborescence des pages → Liste les pages côté client et admin, comme :\r bash\r CopierModifier\r / → Accueil /boutique → Catalogue des chapeaux /produit/:id → Page produit /panier → Panier /paiement → Paiement /connexion → Login /inscription /compte → Profil client /admin → Espace admin\r 🚧 Étape 2 : Initialiser le projet\r Frontend (React)\r 1.\r Crée ton app React :\r bash\r CopierModifier\r npx create-react-app spotlight-frontend\r 2.\r Installe les dépendances utiles (exemples) :\r bash\r CopierModifier\r npm install react-router-dom axios redux react-redux\r 3.\r Configure le routeur (react-router-dom) avec les pages de base.\r Backend (Node.js)\r 1.\r Initialise un projet Node :\r bash\r CopierModifier\r npm init -y\r 2.\r Installe les dépendances de base :\r bash\r CopierModifier\r npm install express mongoose dotenv cors nodemon\r 3.\r Crée un serveur de base (server.js) avec des routes simples :\r js\r CopierModifier\r app.get('/', (req, res) => { res.send('API Spotlight en ligne') });\r 🧱 Étape 3 : Construire progressivement\r Backend\r •\r Authentification (JWT + bcrypt)\r •\r Modèle Produit, Utilisateur, Commande\r •\r Routes REST API :\r o\r GET /produits, GET /produits/:id\r o\r POST /commande, POST /utilisateur/login, etc.\r Frontend\r •\r Composants : Header, Footer, CardProduit, Panier, Formulaire de paiement\r •\r Pages avec React Router\r •\r Liaison avec l’API via Axios\r 💳 Étape 4 : Intégrer les paiements\r •\r Stripe pour cartes bancaires\r •\r PayPal (via leur SDK JavaScript)\r 🧪 Étape 5 : Tests et sécurité\r •\r Valider chaque fonction côté front et back\r •\r Protéger les routes admin (middleware)\r •\r Gérer les erreurs serveur / client\r 🚀 Étape 6 : Déploiement\r •\r Backend → Render / Railway / VPS\r •\r Frontend → Vercel / Netlify\r •\r Base de données → MongoDB Atlas (ou autre)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,23 +10,24 @@
     "type": "git",
     "url": "git+https://github.com/BeniNsasi17/Hatstore.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/BeniNsasi17/Hatstore/issues"
   },
   "homepage": "https://github.com/BeniNsasi17/Hatstore#readme",
+  "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.13.2",
-    "passport": "^0.7.0",
-    "passport-google-oauth20": "^2.0.0"
+    "pg": "^8.15.6",
+    "swagger-autogen": "^2.23.7"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.10"
   }
 }
